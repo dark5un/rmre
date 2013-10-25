@@ -106,7 +106,8 @@ module Rmre
       eruby.result(:table_name => table_name,
         :primary_key => connection.primary_key(table_name),
         :constraints => constraints,
-        :has_type_column => connection.columns(table_name).find { |col| col.name == 'type' })
+        :has_type_column => connection.columns(table_name).find { |col| col.name == 'type' },
+        :columns => connection.columns(table_name))
     end
 
     def mysql_foreign_keys
